@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
+
 import {
   Box,
   Button,
   CheckBox,
   Grommet,
   Form,
-  FormContext,
   FormField,
   RadioButton,
   RangeInput,
@@ -36,58 +36,30 @@ const Example = () => (
       <Box width="medium">
         <Form onSubmit={({value}) => console.log("Submit", value)}>
           <FormField
-            label="Name"
-            name="name"
+            label="First name"
+            name="first_name"
+            required
+            validate={{regexp: /^[a-z]/i}}
+          />
+          <FormField
+            label="Last name"
+            name="last_name"
             required
             validate={{regexp: /^[a-z]/i}}
           />
           <FormField label="Email" name="email" type="email" required/>
           <FormField
-            label="Employee ID"
-            name="employeeId"
+            label="Password"
+            name="password1"
             required
-            validate={{regexp: /^[0-9]{4,6}$/, message: "4-6 digits"}}
+            validate={{regexp: /^[a-z]/i}}
           />
           <FormField
-            name="subscribe"
-            component={CheckBox}
-            pad
-            label="Subscribe?"
+            label="Repeat password"
+            name="password2"
+            required
+            validate={{regexp: /^[a-z]/i}}
           />
-          <FormField
-            name="ampm"
-            component={RadioButtonGroup}
-            pad
-            options={["morning", "evening"]}
-          />
-          <FormField
-            label="Size"
-            name="size"
-            component={Select}
-            options={["small", "medium", "large", "xlarge"]}
-          />
-          <FormField label="Comments" name="comments" component={TextArea}/>
-          <FormField
-            label="Age"
-            name="age"
-            component={RangeInput}
-            pad
-            min={15}
-            max={75}
-          />
-          <FormField label="Comments" name="comments">
-            <FormContext.Consumer>
-              {({value, update}) => (
-                <TextArea
-                  plain
-                  focusIndicator={false}
-                  value={value.comments}
-                  onChange={event => update('comments', event.target.value)}
-                />
-              )}
-            </FormContext.Consumer>
-          </FormField>
-
           <Box direction="row" justify="between" margin={{top: "medium"}}>
             <Button label="Cancel"/>
             <Button type="submit" label="Update" primary/>
