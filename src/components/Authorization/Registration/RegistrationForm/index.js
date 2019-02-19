@@ -3,14 +3,10 @@ import React from 'react';
 import {
   Box,
   Button,
-  CheckBox,
   Grommet,
   Form,
   FormField,
-  RadioButton,
-  RangeInput,
-  Select,
-  TextArea
+  RadioButton, RoutedButton,
 } from "grommet";
 import {grommet} from "grommet/themes";
 
@@ -32,8 +28,8 @@ const RadioButtonGroup = ({name, onChange, options, value}) => (
 
 const RegistrationForm = () => (
   <Grommet full theme={grommet}>
-    <Box fill align="center" justify="center">
-      <Box width="medium">
+    <Box fill align="center" justify="center" background="light-3">
+      <Box background="white" width="medium" style={{padding: 20, borderRadius: 10}}>
         <Form onSubmit={({value}) => console.log("Submit", value)}>
           <FormField
             label="First name"
@@ -60,11 +56,12 @@ const RegistrationForm = () => (
             required
             validate={{regexp: /^[a-z]/i}}
           />
-          <Box direction="row" justify="between" margin={{top: "medium"}}>
-            <Button label="Cancel"/>
-            <Button type="submit" label="Update" primary/>
-          </Box>
         </Form>
+        <Button type="submit" label="Register" primary/>
+      </Box>
+      <Box width="medium" direction="row" justify="around" margin={{top: "medium"}}>
+        <RoutedButton label="Cancel" path="/" primary/>
+        <RoutedButton label="Login" path="/login" primary/>
       </Box>
     </Box>
   </Grommet>
