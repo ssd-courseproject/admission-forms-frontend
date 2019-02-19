@@ -30,33 +30,15 @@ const RadioButtonGroup = ({name, onChange, options, value}) => (
   </Box>
 );
 
-const RegistrationForm = () => (
+const LoginForm = () => (
   <Grommet full theme={grommet}>
     <Box fill align="center" justify="center">
       <Box width="medium">
         <Form onSubmit={({value}) => console.log("Submit", value)}>
-          <FormField
-            label="First name"
-            name="first_name"
-            required
-            validate={{regexp: /^[a-z]/i}}
-          />
-          <FormField
-            label="Last name"
-            name="last_name"
-            required
-            validate={{regexp: /^[a-z]/i}}
-          />
           <FormField label="Email" name="email" type="email" required/>
           <FormField
             label="Password"
-            name="password1"
-            required
-            validate={{regexp: /^[a-z]/i}}
-          />
-          <FormField
-            label="Repeat password"
-            name="password2"
+            name="password"
             required
             validate={{regexp: /^[a-z]/i}}
           />
@@ -70,4 +52,4 @@ const RegistrationForm = () => (
   </Grommet>
 );
 
-export default RegistrationForm;
+export default LoginForm;
