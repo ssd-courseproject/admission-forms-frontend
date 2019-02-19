@@ -20,6 +20,9 @@ The result will be stored in the 'dist' directory.
 
 - [**Redux**](https://react-redux.js.org) for state management.
 - [**Axios**](https://github.com/axios/axios) for communication with server.
+- [**Grommet**](https://v2.grommet.io) As a main UI-kit.
+
+More information about libraries used and their versions can be found in the `package.json` file.
 
 ## Code style 
 
