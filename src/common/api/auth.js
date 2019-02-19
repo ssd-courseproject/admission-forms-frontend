@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 async function register(request) {
-  const {data} = await axios.post("/auth", request);
+  const {data} = await axios.post("/register", request);
 
   return data;
 }
 
 async function login(request) {
-  const {data} = await axios.post("/auth", request);
+  const {data} = await axios.post("/login", request);
 
   return data;
 }
