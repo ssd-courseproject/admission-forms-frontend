@@ -2,6 +2,7 @@
 <p align="center">
     <img alt="innopolis logo" src="public/innopolis_logo.jpg" height="150">
 </p>
+
 ## Description
 This repository contains the source code of the admission forms application frontend part.
 ## How to run
