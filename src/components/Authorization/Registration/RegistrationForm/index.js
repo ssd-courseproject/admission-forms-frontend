@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 import {
   Box,
@@ -61,7 +62,7 @@ const Example = () => (
             validate={{regexp: /^[a-z]/i}}
           />
           <Box direction="row" justify="between" margin={{top: "medium"}}>
-            <Button label="Cancel"/>
+            <Link to="/"><Button label="Cancel"/></Link>
             <Button type="submit" label="Update" primary/>
           </Box>
         </Form>
