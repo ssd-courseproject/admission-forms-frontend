@@ -37,7 +37,9 @@
   "dependencies": {
     "antd": "^3.13.4",
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "grommet": "^2.4.0",
+    "html-loader": "^0.5.5",
     "less": "^3.9.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",

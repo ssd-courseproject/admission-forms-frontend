@@ -6,6 +6,7 @@ export default class Registration extends Component {
   render() {
     return (
       <div className="registration-form">
+        <p className="title">Register</p>
         <RegistrationForm/>
       </div>
     )
