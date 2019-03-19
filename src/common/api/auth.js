@@ -1,19 +1,22 @@
 import axios from 'axios';
 
-async function register(request) {
-  const {data} = await axios.post("/register", request);
+// TODO fill in url
+const url = '';
+
+async function register(params) {
+  const {data} = await axios.post(`${url}/register`, {params});
 
   return data;
 }
 
-async function login(request) {
-  const {data} = await axios.post("/login", request);
+async function login(params) {
+  const {data} = await axios.post(`${url}/login`, {params});
 
   return data;
 }
 
 async function logout() {
-  const {data} = await axios.post("/logout");
+  const {data} = await axios.post(`${url}/logout`);
 
   return data;
 }
