@@ -4,14 +4,10 @@ import {Link} from "react-router-dom";
 import {
   Box,
   Button,
-  CheckBox,
   Grommet,
   Form,
   FormField,
-  RadioButton,
-  RangeInput,
-  Select,
-  TextArea
+  RadioButton, RoutedButton,
 } from "grommet";
 import {grommet} from "grommet/themes";
 
@@ -31,10 +27,10 @@ const RadioButtonGroup = ({name, onChange, options, value}) => (
   </Box>
 );
 
-const Example = () => (
+const RegistrationForm = () => (
   <Grommet full theme={grommet}>
-    <Box fill align="center" justify="center">
-      <Box width="medium">
+    <Box fill align="center" justify="center" background="light-3">
+      <Box background="white" width="medium" style={{padding: 20, borderRadius: 10}}>
         <Form onSubmit={({value}) => console.log("Submit", value)}>
           <FormField
             label="First name"
@@ -61,14 +57,15 @@ const Example = () => (
             required
             validate={{regexp: /^[a-z]/i}}
           />
-          <Box direction="row" justify="between" margin={{top: "medium"}}>
-            <Link to="/"><Button label="Cancel"/></Link>
-            <Button type="submit" label="Update" primary/>
-          </Box>
         </Form>
+        <Button type="submit" label="Register" primary/>
+      </Box>
+      <Box width="medium" direction="row" justify="around" margin={{top: "medium"}}>
+        <RoutedButton label="Cancel" path="/" primary/>
+        <RoutedButton label="Login" path="/login" primary/>
       </Box>
     </Box>
   </Grommet>
 );
 
-export default Example;
+export default RegistrationForm;
