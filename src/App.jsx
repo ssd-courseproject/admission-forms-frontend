@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import Registration from './components/Authorization/Registration';
-import {createStore} from "redux/index";
+import Login from './components/Authorization/Login';
 import MainPage from "./components/MainPage";
 import {Switch, Route} from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
 import Profile from "./components/Profile";
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default class App extends Component {
   render() {
@@ -26,19 +28,21 @@ export default class App extends Component {
       {
         id: 1,
         name: 'Home',
-        href: '/'
+        href: '/',
       }
     ];
 
     return (
       <BrowserRouter>
         <div>
+          <Header links={headerLinks}/>
           <Switch>
             <Route path="/profile" component={Profile}/>
             <Route path="/register" component={Registration}/>
-            {/*<Route path="/login" component={Login}/>*/}
+            <Route path="/login" component={Login}/>
             <Route path="/" component={MainPage}/>
           </Switch>
+          <Footer links={footerLinks}/>
         </div>
       </BrowserRouter>
     )

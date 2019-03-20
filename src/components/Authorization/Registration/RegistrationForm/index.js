@@ -61,8 +61,8 @@ const RegistrationForm = () => (
         <Button type="submit" label="Register" primary/>
       </Box>
       <Box width="medium" direction="row" justify="around" margin={{top: "medium"}}>
-        <RoutedButton label="Cancel" path="/" primary/>
-        <RoutedButton label="Login" path="/login" primary/>
+        {/*<RoutedButton label="Cancel" path="/" primary/>*/}
+        {/*<RoutedButton label="Login" path="/login" primary/>*/}
       </Box>
     </Box>
   </Grommet>
