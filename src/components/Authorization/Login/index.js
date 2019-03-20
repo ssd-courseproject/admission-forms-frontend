@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import LoginForm from './LoginForm';
+import './index.less';
 
 export default class Login extends Component {
   render() {
     return (
-      <div className="registration-form">
-        <p className="">Login</p>
+      <div className="login">
         <LoginForm/>
       </div>
     )

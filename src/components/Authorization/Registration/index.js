@@ -5,8 +5,7 @@ import './index.less';
 export default class Registration extends Component {
   render() {
     return (
-      <div className="registration-form">
-        <p className="">Register</p>
+      <div className="registration">
         <RegistrationForm/>
       </div>
     )
