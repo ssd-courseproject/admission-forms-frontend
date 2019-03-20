@@ -21,6 +21,18 @@ async function logout() {
   return data;
 }
 
+async function loginMock(params) {
+  await setTimeout((() => ({
+    token: ''
+  })), 1000);
+}
+
+async function registerMock(params) {
+  await setTimeout((() => ({
+    token: ''
+  })), 1000);
+}
+
 export default {
   register,
   login,
