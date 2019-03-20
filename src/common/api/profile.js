@@ -4,19 +4,20 @@ import axios from 'axios';
 const url = '';
 
 async function fetch(params) {
-    const {data} = await axios.post(`${url}/profile`, {params});
+  const {data} = await axios.post(`${url}/profile`, {params});
 
-    return data;
+  return data;
 }
 
-async function fetchMock(params) {
-    await setTimeout((() => ({
-        firstName: 'Ruslan',
-        lastName: 'Farkhutdinov',
-
-    })), 1000);
+function fetchMock(params) {
+  return {
+    firstName: 'Ruslan',
+    lastName: 'Farkhutdinov',
+    email: 'email@gmail.com',
+  };
 }
 
 export default {
-    fetch,
+  fetchMock,
+  fetch,
 };

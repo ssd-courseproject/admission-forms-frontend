@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './index.less';
+import {connect} from "react-redux";
 
-export default class Footer extends Component {
+class Footer extends Component {
   constructor(props) {
     super(props);
 
@@ -21,3 +22,5 @@ export default class Footer extends Component {
     );
   }
 }
+
+export default Footer;
