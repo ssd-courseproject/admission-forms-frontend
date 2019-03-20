@@ -23,7 +23,7 @@ function Profile() {
             <Box full={true}>
                 <Grid
                     className="grid"
-                    rows={['0%', '80%']}
+                    rows={['0%', '90%']}
                     columns={['30%', '69%']}
                     gap="small"
                     areas={[
@@ -32,9 +32,36 @@ function Profile() {
                         {name: 'main', start: [1, 1], end: [1, 1]},
                     ]}
                 >
-                    <Box gridArea="header" background="brand"/>
-                    <Box gridArea="nav" background="light-5"/>
-                    <Box gridArea="main" background="light-2"/>
+                    <Box gridArea="nav" background="light-2">
+                        <div className="user-pic"/>
+                        <p className="user-name">Ruslan Farkhutdinov</p>
+                        <p className="user-detail">
+                            Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                            magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        </p>
+                    </Box>
+                    <Box gridArea="main" background="light-2">
+                        <p className="titles">
+                            About
+                        </p>
+                        <p className="data">First Name: Ruslan</p>
+                        <p className="data">Last Name: Farkhutdinov</p>
+                        <p className="data">Email: r.farkhutdinov@gmail.com</p>
+                        <p className="user-description">
+                            Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                            magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        </p>
+                        <p className="titles">Education</p>
+                        <p className="education">
+                            Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                            magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        </p>
+                        <p className="titles">Experience</p>
+                        <p className="experience">
+                            Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                            magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        </p>
+                    </Box>
                 </Grid>
             </Box>
         </Grommet>
