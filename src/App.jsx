@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import Registration from './components/Authorization/Registration';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import {createStore} from "redux/index";
+import MainPage from "./components/MainPage";
+import {Switch, Route} from 'react-router';
+import {BrowserRouter} from 'react-router-dom';
+import Profile from "./components/Profile";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     const headerLinks = [
       {
@@ -28,13 +31,16 @@ class App extends Component {
     ];
 
     return (
-      <div>
-        <Header menu={headerLinks}/>
-        <Registration/>
-        <Footer links={footerLinks}/>
-      </div>
-    );
+      <BrowserRouter>
+        <div>
+          <Switch>
+            <Route path="/profile" component={Profile}/>
+            <Route path="/register" component={Registration}/>
+            {/*<Route path="/login" component={Login}/>*/}
+            <Route path="/" component={MainPage}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    )
   }
 }
-
-export default App;
