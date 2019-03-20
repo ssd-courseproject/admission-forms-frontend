@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.hero-image {
+  background-image: url("images/5_1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  height: 837px;
+
+}
+
+.title {
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 25px;
+
+  height: 70px;
+  line-height: 60px;
+  text-transform: capitalize;
+  width: 800px;
+  padding-left: 100px;
+  padding-top: 15%;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.university-description {
+  padding-top: 40px;
+  color: #434343;
+  font-size: 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: left;
+  margin-left: 100px;
+  margin-right: 100px;
+
+}
+
+.line {
+  width: 120px;
+  margin-top: -30px;
+  border-bottom: 1px solid #a4a4a4;
+  position: absolute;
+}
+
+p.course-description {
+  text-transform: none;
+  font-size: 20px;
+  margin-right: 300px;
+  color: #868686;
+}
+
+button {
+  font-size: 18px;
+  border: none;
+  padding: 15px 25px;
+  cursor: pointer;
+  background: #ffffff;
+  border-radius: 25px;
+  margin-left: 100px;
+  margin-top: 15%;
+  color: #000000;
+
+  &:hover {
+    background: #5f1aa2;
+    color: white;
+    transition: 0.5s;
+  }
+}
+
+.course-examples {
+  display: flex;
+  margin: 100px 100px 20%;
+
+  p {
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+    color: #464646;
+    margin-top: 280px;
+
+    &:hover {
+      color: #5f1aa2;
+      transition: 0.5s;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.first-column {
+  background-color: #ffffff;
+  background-image: url("images/14183121963_c5ef40ce5b_o.jpg");
+  background-repeat: no-repeat;
+  background-size: 350px;
+  background-position: top;
+  background-position-y: 20px;
+  height: 300px;
+  margin-right: 20px;
+  border: 1px solid #eeeeee;
+  padding: 20px;
+
+}
+
+.second-column {
+  background-color: #ffffff;
+  background-image: url("images/bigstock-Young-Man-Doing-Homework-And-S-45525031.jpg");
+  background-repeat: no-repeat;
+  background-size: 350px;
+  background-position: top;
+  background-position-y: 20px;
+  height: 300px;
+  margin-right: 20px;
+  border: 1px solid #eeeeee;
+  padding: 20px;
+}
+
+.third-column {
+  background-color: #ffffff;
+  background-image: url("images/iStock-507009337-171002.png");
+  background-repeat: no-repeat;
+  height: 300px;
+  background-size: 370px 234px;
+  background-position: top;
+  background-position-y: 20px;
+  border: 1px solid #eeeeee;
+  padding: 20px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
