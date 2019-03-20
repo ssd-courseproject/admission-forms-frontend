@@ -9,12 +9,17 @@ import {
   Form,
   FormField,
 } from "grommet";
+import api from "../../../../common/api";
+
+const submitForm = (data) => {
+  localStorage.setItem("token", api.auth.login(data).result);
+};
 
 const LoginForm = () => {
   return (
     <div className="auth-form">
       <p className="r-title">Login</p>
-      <Form onSubmit={({value}) => console.log("Submit", value)}>
+      <Form onSubmit={data => submitForm(data)}>
         <FormField
           label="Email"
           name="email"
@@ -25,7 +30,7 @@ const LoginForm = () => {
           label="Password"
           name="password"
           required
-          validate={{regexp: /^[a-z]/i}}
+          // validate={{regexp: /^[a-z]/i}}
         />
       </Form>
       <p className="form-control-text">If you don't have an account, <Link to="/register">register</Link>.</p>

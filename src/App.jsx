@@ -7,6 +7,11 @@ import {BrowserRouter} from 'react-router-dom';
 import Profile from "./components/Profile";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import {createStore} from 'redux';
+import admissionsFormsReducers from './redux/reducers';
+import {Provider} from "react-redux";
+
+const store = createStore(admissionsFormsReducers);
 
 export default class App extends Component {
   render() {
@@ -33,18 +38,20 @@ export default class App extends Component {
     ];
 
     return (
-      <BrowserRouter>
-        <div>
-          <Header links={headerLinks}/>
-          <Switch>
-            <Route path="/profile" component={Profile}/>
-            <Route path="/register" component={Registration}/>
-            <Route path="/login" component={Login}/>
-            <Route path="/" component={MainPage}/>
-          </Switch>
-          <Footer links={footerLinks}/>
-        </div>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div>
+            <Header links={headerLinks}/>
+            <Switch>
+              <Route path="/profile" component={Profile}/>
+              <Route path="/register" component={Registration}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/" component={MainPage}/>
+            </Switch>
+            <Footer links={footerLinks}/>
+          </div>
+        </BrowserRouter>
+      </Provider>
     )
   }
 }
