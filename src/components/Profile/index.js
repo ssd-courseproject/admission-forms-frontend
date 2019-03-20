@@ -17,7 +17,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    const profileData = this.fetchData();
+    const profileData = this.fetchData(localStorage.getItem('token'));
 
     this.setState(
       {
@@ -27,8 +27,8 @@ class Profile extends Component {
       });
   }
 
-  fetchData() {
-    return api.profile.fetchMock();
+  fetchData(data) {
+    return api.profile.fetchMock(data);
   }
 
   render() {
