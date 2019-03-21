@@ -46,10 +46,10 @@ const RegistrationForm = () => {
           // validate={{regexp: /^[a-z]/i}}
         />
         <div className="form-control">
-          <Button type="submit" label="Register" primary/>
+          <Link to="/profile"><Button type="submit" label="Register" primary/></Link>
         </div>
       </Form>
-      <p className="form-control-text">If you already have an account, <Link to="/login">sign in</Link></p>
+      <p className="form-control-text">If you already have an account, <Link to="/login">sign in</Link>.</p>
     </div>
   )
 };

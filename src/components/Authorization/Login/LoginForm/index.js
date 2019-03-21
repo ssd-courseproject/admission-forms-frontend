@@ -35,7 +35,7 @@ const LoginForm = () => {
       </Form>
       <p className="form-control-text">If you don't have an account, <Link to="/register">register</Link>.</p>
       <div className="form-control">
-        <Button type="submit" label="Login" primary/>
+          <Link to="/profile"><Button type="submit" label="Login" primary/></Link>
       </div>
     </div>
   )
