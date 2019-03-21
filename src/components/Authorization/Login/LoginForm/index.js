@@ -12,7 +12,9 @@ import {
 import api from "../../../../common/api";
 
 const submitForm = (data) => {
-  localStorage.setItem("token", api.auth.login(data).result);
+  console.log(data.value);
+  api.auth.login(data.value);
+  // localStorage.setItem("token", api.auth.login(data).result);
 };
 
 const LoginForm = () => {
@@ -21,22 +23,21 @@ const LoginForm = () => {
       <p className="r-title">Login</p>
       <Form onSubmit={data => submitForm(data)}>
         <FormField
-          label="Email"
-          name="email"
+          label="Username"
+          name="username"
           required
         />
-        <FormField label="Email" name="email" type="email" required/>
         <FormField
           label="Password"
           name="password"
           required
           // validate={{regexp: /^[a-z]/i}}
         />
+        <div className="form-control">
+          <Button type="submit" label="Login" primary/>
+        </div>
       </Form>
       <p className="form-control-text">If you don't have an account, <Link to="/register">register</Link>.</p>
-      <div className="form-control">
-          <Link to="/profile"><Button type="submit" label="Login" primary/></Link>
-      </div>
     </div>
   )
 };

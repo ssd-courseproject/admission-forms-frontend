@@ -14,7 +14,7 @@ class Footer extends Component {
   render() {
     return (
       <header>
-        <a href="/" className="logo">CompanyLogo</a>
+        <a href="/" className="logo">AdmissionForms</a>
         <div className="header-right">
           {this.state.links.map(item => <a key={item.id} href={item.href} className={item.active}>{item.name}</a>)}
         </div>
