@@ -2,7 +2,7 @@ import axios from 'axios';
 import history from '../../history';
 
 // TODO fill in url
-const url = 'http://127.0.0.1:5000/';
+const url = 'http://34.73.254.12/';
 
 async function register(params) {
   const {data} = await axios.post(`${url}/register`, {params});

@@ -1,20 +1,31 @@
 import React, {Component} from 'react';
-import Registration from './components/Authorization/Registration';
-import Login from './components/Authorization/Login';
+import Registration from './components/Authorization/Registration/index';
+import Login from './components/Authorization/Login/index';
 import MainPage from "./components/MainPage";
 import {Switch, Route} from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
 import Profile from "./components/Profile";
 import Header from './components/Header';
 import Footer from './components/Footer';
-import {createStore} from 'redux';
-import admissionsFormsReducers from './redux/reducers';
-import {Provider} from "react-redux";
+import {connect} from "react-redux";
+import {alertActionsTypes} from "./redux/constants";
+import history from './history';
 
-const store = createStore(admissionsFormsReducers);
+class App extends Component {
+  constructor(props) {
+    super(props);
 
-export default class App extends Component {
+    const {dispatch} = this.props;
+    history.listen(() => {
+      dispatch(alertActionsTypes.clear());
+    });
+  }
+
   render() {
+    const {alert, user, auth} = this.props;
+
+    console.log(this.props);
+
     const headerLinks = [
       {
         id: 0,
@@ -38,20 +49,32 @@ export default class App extends Component {
     ];
 
     return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <div>
-            <Header links={headerLinks}/>
-            <Switch>
-              <Route path="/profile" component={Profile}/>
-              <Route path="/register" component={Registration}/>
-              <Route path="/login" component={Login}/>
-              <Route path="/" component={MainPage}/>
-            </Switch>
-            <Footer links={footerLinks}/>
-          </div>
-        </BrowserRouter>
-      </Provider>
+      <BrowserRouter>
+        <div>
+          {/*{alert.message &&*/}
+          {/*<div className={`alert ${alert.type}`}>{alert.message}</div>*/}
+          {/*}*/}
+          <Header links={headerLinks}/>
+          <Switch>
+            <Route path="/profile" component={Profile}/>
+            <Route path="/register" component={Registration}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/" component={MainPage}/>
+          </Switch>
+          <Footer links={footerLinks}/>
+        </div>
+      </BrowserRouter>
     )
   }
 }
+
+function mapStateToProps(state) {
+  const {alert, user, auth} = state;
+  return {
+    alert,
+    user,
+    auth
+  };
+}
+
+export default connect(mapStateToProps, null)(App);

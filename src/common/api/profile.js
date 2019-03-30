@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // TODO fill in url
-const url = 'http://127.0.0.1:5000';
+const url = '34.73.254.12';
 
 async function fetch(params) {
   const {data} = await axios.post(`${url}/profile`, {params});
