@@ -1,4 +1,4 @@
-export const userActions = {
+export const userActionsTypes = {
   REGISTER_REQUEST: 'USERS_REGISTER_REQUEST',
   REGISTER_SUCCESS: 'USERS_REGISTER_SUCCESS',
   REGISTER_FAILURE: 'USERS_REGISTER_FAILURE',
@@ -10,3 +10,7 @@ export const userActions = {
   LOGOUT: 'USERS_LOGOUT',
 };
 
+export const alertActionsTypes = {
+  SUCCESS: 'ALERT_SUCCESS',
+  ERROR: 'ALERT_ERROR',
+};

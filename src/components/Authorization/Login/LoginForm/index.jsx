@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import '../../index.less';
+import usersActions from '../../../../redux/actions/users';
 
 import {
   Box,
@@ -10,18 +11,19 @@ import {
   FormField,
 } from "grommet";
 import api from "../../../../common/api";
+import {userActionsTypes} from "../../../../redux/constants";
 
-const submitForm = (data) => {
-  console.log(data.value);
-  api.auth.login(data.value);
-  // localStorage.setItem("token", api.auth.login(data).result);
+const submitForm = (data, dispatch) => {
+  if (data.username && data.password) {
+    dispatch(usersActions.login(data.username, data.password));
+  }
 };
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   return (
     <div className="auth-form">
       <p className="r-title">Login</p>
-      <Form onSubmit={data => submitForm(data)}>
+      <Form onSubmit={data => submitForm(data, props.dispatch)}>
         <FormField
           label="Username"
           name="username"
