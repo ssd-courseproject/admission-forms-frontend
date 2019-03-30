@@ -1,10 +1,15 @@
 import { authHeader } from '../utils';
+import api from '../../common/api';
 
 export const userService = {
   login,
   logout,
   getProfile,
 };
+
+const loginUrl = api.baseURL + '/auth/login';
+const logoutUrl = api.baseURL + '/auth/logout';
+const profileUrl = api.baseURL + '/profile';
 
 function login(username, password) {
   const requestOptions = {
@@ -13,7 +18,7 @@ function login(username, password) {
     body: JSON.stringify({ username, password })
   };
 
-  return fetch(`http://34.73.254.12/login`, requestOptions)
+  return fetch(loginUrl, requestOptions)
     .then(handleResponse)
     .then(user => {
       localStorage.setItem('user', JSON.stringify(user));
@@ -24,6 +29,8 @@ function login(username, password) {
 
 function logout() {
   localStorage.removeItem('user');
+
+  return fetch(logoutUrl, {method: 'POST'});
 }
 
 function getProfile() {
@@ -32,7 +39,7 @@ function getProfile() {
     headers: authHeader()
   };
 
-  return fetch(`/profile`, requestOptions).then(handleResponse);
+  return fetch(profileUrl, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

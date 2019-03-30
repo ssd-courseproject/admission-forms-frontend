@@ -4,18 +4,17 @@ import '../../index.less';
 import usersActions from '../../../../redux/actions/users';
 
 import {
-  Box,
   Button,
-  Grommet,
   Form,
   FormField,
 } from "grommet";
-import api from "../../../../common/api";
-import {userActionsTypes} from "../../../../redux/constants";
 
 const submitForm = (data, dispatch) => {
+
+  console.log(dispatch);
+  console.log(data.value);
   if (data.username && data.password) {
-    dispatch(usersActions.login(data.username, data.password));
+    dispatch(usersActions.login(data.value.username, data.value.password));
   }
 };
 
