@@ -3,15 +3,15 @@ import {userService} from '../services/users';
 import history from '../../history';
 
 
-function login(username, password) {
+function login(email, password) {
   return dispatch => {
-    dispatch(request({username}));
+    dispatch(request({email}));
 
-    userService.login(username, password)
+    userService.login(email, password)
       .then(
         user => {
           dispatch(success(user));
-          history.push('/');
+          history.go('/profile');
         },
         error => {
           dispatch(failure(error));
@@ -65,4 +65,4 @@ function logout() {
   return {type: userActionsTypes.LOGOUT};
 }
 
-export default {login, logout};
+export default {login, logout, getProfile};

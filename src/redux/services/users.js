@@ -8,10 +8,27 @@ export const userService = {
 };
 
 const loginUrl = api.baseURL + '/auth/login';
+const registerUrl = api.baseURL + '/auth/register';
 const logoutUrl = api.baseURL + '/auth/logout';
 const profileUrl = api.baseURL + '/profile';
 
-function login(username, password) {
+function login(email, password) {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  };
+
+  return fetch(loginUrl, requestOptions)
+    .then(handleResponse)
+    .then(user => {
+      localStorage.setItem('user', JSON.stringify(user));
+
+      return user;
+    });
+}
+
+function register(username, password) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

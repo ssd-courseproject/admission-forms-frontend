@@ -8,7 +8,7 @@ import Profile from "./components/Profile/index";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import {connect} from "react-redux";
-import userActions from './redux/actions/users'
+import Logout from './components/Authorization/Logout';
 
 class App extends Component {
   constructor(props) {
@@ -55,8 +55,6 @@ class App extends Component {
       }
     ];
 
-    console.log(localStorage.getItem('user'));
-
     return (
       <BrowserRouter>
         <div>
@@ -68,7 +66,7 @@ class App extends Component {
             <Route path="/profile" component={Profile}/>
             <Route path="/register" component={Registration}/>
             <Route path="/login" component={Login}/>
-            <Route path="/logout" component={Login}/>
+            <Route path="/logout" component={Logout}/>
             <Route path="/" component={MainPage}/>
           </Switch>
           <Footer links={footerLinks}/>

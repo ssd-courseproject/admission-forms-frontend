@@ -13,8 +13,8 @@ const submitForm = (data, dispatch) => {
 
   console.log(dispatch);
   console.log(data.value);
-  if (data.username && data.password) {
-    dispatch(usersActions.login(data.value.username, data.value.password));
+  if (data.value.email && data.value.password) {
+    dispatch(usersActions.login(data.value.email, data.value.password));
   }
 };
 
@@ -25,7 +25,7 @@ const LoginForm = (props) => {
       <Form onSubmit={data => submitForm(data, props.dispatch)}>
         <FormField
           label="Username"
-          name="username"
+          name="email"
           required
         />
         <FormField
