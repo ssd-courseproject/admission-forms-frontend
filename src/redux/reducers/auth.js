@@ -4,16 +4,17 @@ let user = JSON.parse(localStorage.getItem('user'));
 const initialState = user ? { loggedIn: true, user } : {};
 
 export function authorization(state = initialState, action) {
+  console.log(action.payload)
   switch (action.type) {
     case userActionsTypes.LOGIN_REQUEST:
       return {
         loggingIn: true,
-        token: action.user
+        user: action.payload
       };
     case userActionsTypes.LOGIN_SUCCESS:
       return {
         loggedIn: true,
-        token: action.data.user
+        user: action.payload
       };
     case userActionsTypes.LOGIN_FAILURE:
       return {};

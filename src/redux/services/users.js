@@ -1,4 +1,4 @@
-import { authHeader } from '../utils';
+import {authHeader} from '../utils';
 import api from '../../common/api';
 import history from "../../history";
 
@@ -16,8 +16,8 @@ const profileUrl = api.baseURL + '/profile';
 function login(email, password) {
   const requestOptions = {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({email, password})
   };
 
   return fetch(loginUrl, requestOptions)
@@ -25,31 +25,27 @@ function login(email, password) {
     .then(response => {
       localStorage.setItem('token', JSON.stringify(response.data.access_token));
       history.push('/profile');
-
-      return user;
     });
 }
 
 function register(username, password) {
   const requestOptions = {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password })
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({username, password})
   };
 
   return fetch(loginUrl, requestOptions)
     .then(handleResponse)
     .then(user => {
       localStorage.setItem('token', JSON.stringify(user));
-
-      return user;
     });
 }
 
 function logout() {
   localStorage.removeItem('token');
 
-  return fetch(logoutUrl, {method: 'POST'});
+  // return fetch(logoutUrl, {method: 'POST'});
 }
 
 function getProfile() {

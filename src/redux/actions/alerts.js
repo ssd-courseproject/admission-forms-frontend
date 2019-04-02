@@ -8,4 +8,8 @@ function error(message) {
   return { type: alertActionsTypes.ERROR, message };
 }
 
-export default {success, error};
+function hide() {
+  return { type: alertActionsTypes.HIDE };
+}
+
+export default {success, error, hide};

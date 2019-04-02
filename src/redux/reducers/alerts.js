@@ -12,7 +12,7 @@ export function alert(state = {}, action) {
         type: 'alert-danger',
         message: action.message
       };
-    case alertActionsTypes.CLEAR:
+    case alertActionsTypes.HIDE:
       return {};
     default:
       return state

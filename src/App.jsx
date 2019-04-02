@@ -10,6 +10,8 @@ import Footer from './components/Footer';
 import {connect} from "react-redux";
 import Logout from './components/Authorization/Logout';
 import {PrivateRoute} from "./components/PrivateRoute/index.jsx";
+import './index.less';
+import alertActions from "./redux/actions/alerts";
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class App extends Component {
   render() {
     const {alert, user, auth} = this.props;
 
-    console.log(localStorage);
+    console.log(this.props);
 
     const headerLinksUnauthorized = [
       {
@@ -60,10 +62,10 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <div>
-          {/*{alert.message &&*/}
-          {/*<div className={`alert ${alert.type}`}>{alert.message}</div>*/}
-          {/*}*/}
+        <div className="main-container">
+          {alert.message &&
+          <div className={`alert ${alert.type}`}>{alert.message}<div className="close" onClick={() => this.props.dispatch(alertActions.hide())}>x</div></div>
+          }
           <Header
             links={localStorage.getItem('token') ? headerLinksAuthorized(localStorage.getItem('token')) : headerLinksUnauthorized}/>
           <Switch>
@@ -88,5 +90,7 @@ function mapStateToProps(state) {
     auth
   };
 }
+
+
 
 export default connect(mapStateToProps, null)(App);

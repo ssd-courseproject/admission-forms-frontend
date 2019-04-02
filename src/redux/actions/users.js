@@ -12,8 +12,10 @@ function login(email, password) {
 
     userService.login(email, password)
       .then(
-        user => {
-          dispatch(success(user));
+        payload => {
+          dispatch(success(payload));
+          dispatch(alerts.success(`You are now logged in as ${payload}`));
+          console.log(payload + " is a payload");
         },
         error => {
           dispatch(failure(error));
@@ -22,12 +24,12 @@ function login(email, password) {
       );
   };
 
-  function request(user) {
-    return {type: userActionsTypes.LOGIN_REQUEST, user}
+  function request(payload) {
+    return {type: userActionsTypes.LOGIN_REQUEST, payload}
   }
 
-  function success(user) {
-    return {type: userActionsTypes.LOGIN_SUCCESS, user}
+  function success(payload) {
+    return {type: userActionsTypes.LOGIN_SUCCESS, payload}
   }
 
   function failure(error) {
