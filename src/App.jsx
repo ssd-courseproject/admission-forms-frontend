@@ -59,7 +59,7 @@ class App extends Component {
     ];
 
     return (
-      <BrowserRouter >
+      <BrowserRouter>
         <div>
           {/*{alert.message &&*/}
           {/*<div className={`alert ${alert.type}`}>{alert.message}</div>*/}
@@ -67,13 +67,11 @@ class App extends Component {
           <Header
             links={localStorage.getItem('token') ? headerLinksAuthorized(localStorage.getItem('token')) : headerLinksUnauthorized}/>
           <Switch>
-            <PrivateRoute>
-              <PrivateRoute path="/profile" component={Profile}/>
-              <Route path="/register" component={Registration}/>
-              <Route path="/login" component={Login}/>
-              <Route path="/logout" component={Logout}/>
-              <Route path="/" component={MainPage}/>
-            </PrivateRoute>
+            <PrivateRoute path="/profile" component={Profile}/>
+            <Route path="/register" component={Registration}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/logout" component={Logout}/>
+            <Route path="/" component={MainPage}/>
           </Switch>
           <Footer links={footerLinks}/>
         </div>
