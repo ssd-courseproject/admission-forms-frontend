@@ -21,8 +21,8 @@ function login(email, password) {
 
   return fetch(loginUrl, requestOptions)
     .then(handleResponse)
-    .then(user => {
-      localStorage.setItem('user', JSON.stringify(user));
+    .then(response => {
+      localStorage.setItem('token', JSON.stringify(response.data.access_token));
 
       return user;
     });
@@ -38,14 +38,14 @@ function register(username, password) {
   return fetch(loginUrl, requestOptions)
     .then(handleResponse)
     .then(user => {
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('token', JSON.stringify(user));
 
       return user;
     });
 }
 
 function logout() {
-  localStorage.removeItem('user');
+  localStorage.removeItem('token');
 
   return fetch(logoutUrl, {method: 'POST'});
 }

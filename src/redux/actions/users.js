@@ -1,9 +1,12 @@
-import {alertActionsTypes, userActionsTypes} from '../constants';
+import {userActionsTypes} from '../constants';
 import {userService} from '../services/users';
 import history from '../../history';
+import alerts from './alerts';
 
 
 function login(email, password) {
+  console.log(localStorage);
+
   return dispatch => {
     dispatch(request({email}));
 
@@ -11,11 +14,11 @@ function login(email, password) {
       .then(
         user => {
           dispatch(success(user));
-          history.go('/profile');
+          history.push('/profile');
         },
         error => {
           dispatch(failure(error));
-          dispatch(alertActionsTypes.error(error));
+          dispatch(alerts.error(error));
         }
       );
   };
@@ -39,10 +42,10 @@ function getProfile() {
 
     userService.getProfile()
       .then(
-        users => dispatch(success(users)),
+        user => dispatch(success(user)),
         error => {
           dispatch(failure(error));
-          dispatch(alertActionsTypes.error(error))
+          dispatch(alerts.error(error))
         }
       );
   };
@@ -51,8 +54,8 @@ function getProfile() {
     return {type: userActionsTypes.PROFILE_REQUEST}
   }
 
-  function success(users) {
-    return {type: userActionsTypes.PROFILE_SUCCESS, users}
+  function success(data) {
+    return {type: userActionsTypes.PROFILE_SUCCESS, data}
   }
 
   function failure(error) {
