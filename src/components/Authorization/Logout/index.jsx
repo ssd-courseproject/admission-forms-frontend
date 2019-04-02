@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import userActions from '../../../redux/actions/users';
+import {Redirect} from "react-router";
 
 class Logout extends Component {
   componentWillMount() {
@@ -8,11 +9,12 @@ class Logout extends Component {
   }
 
   render() {
-    return <div></div>
+    return <Redirect to={""}/>
+
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {loggedIn: false}
 }
 

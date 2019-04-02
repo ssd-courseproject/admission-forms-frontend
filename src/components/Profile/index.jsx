@@ -10,7 +10,10 @@ class Profile extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props);
+
     this.props.dispatch(userActions.getProfile());
+    console.log(this.props);
   }
 
   render() {

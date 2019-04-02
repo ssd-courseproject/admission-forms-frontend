@@ -10,9 +10,6 @@ import {
 } from "grommet";
 
 const submitForm = (data, dispatch) => {
-
-  console.log(dispatch);
-  console.log(data.value);
   if (data.value.email && data.value.password) {
     dispatch(usersActions.login(data.value.email, data.value.password));
   }
@@ -24,13 +21,16 @@ const LoginForm = (props) => {
       <p className="r-title">Login</p>
       <Form onSubmit={data => submitForm(data, props.dispatch)}>
         <FormField
-          label="Username"
+          label="E-mail"
           name="email"
+          placeholder="Enter your email"
           required
         />
         <FormField
           label="Password"
           name="password"
+          placeholder="Enter your password"
+          type="password"
           required
           // validate={{regexp: /^[a-z]/i}}
         />

@@ -18,6 +18,8 @@ class App extends Component {
   render() {
     const {alert, user, auth} = this.props;
 
+    console.log(localStorage);
+
     const headerLinksUnauthorized = [
       {
         id: 0,
@@ -61,7 +63,7 @@ class App extends Component {
           {/*{alert.message &&*/}
           {/*<div className={`alert ${alert.type}`}>{alert.message}</div>*/}
           {/*}*/}
-          <Header links={localStorage.getItem('user') ? headerLinksAuthorized(localStorage.getItem('user')) : headerLinksUnauthorized}/>
+          <Header links={localStorage.getItem('token') ? headerLinksAuthorized(localStorage.getItem('token')) : headerLinksUnauthorized}/>
           <Switch>
             <Route path="/profile" component={Profile}/>
             <Route path="/register" component={Registration}/>
