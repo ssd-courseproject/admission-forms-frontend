@@ -14,7 +14,6 @@ function login(email, password) {
       .then(
         user => {
           dispatch(success(user));
-          history.push('/profile');
         },
         error => {
           dispatch(failure(error));
@@ -65,6 +64,7 @@ function getProfile() {
 
 function logout() {
   userService.logout();
+  history.push('/');
   return {type: userActionsTypes.LOGOUT};
 }
 

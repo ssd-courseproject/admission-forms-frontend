@@ -1,5 +1,6 @@
 import { authHeader } from '../utils';
 import api from '../../common/api';
+import history from "../../history";
 
 export const userService = {
   login,
@@ -23,6 +24,7 @@ function login(email, password) {
     .then(handleResponse)
     .then(response => {
       localStorage.setItem('token', JSON.stringify(response.data.access_token));
+      history.push('/profile');
 
       return user;
     });
