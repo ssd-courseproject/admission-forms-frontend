@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import {connect} from "react-redux";
 import Logout from './components/Authorization/Logout';
+import TestList from './components/Tests/TestList';
 
 class App extends Component {
   constructor(props) {
@@ -38,6 +39,12 @@ class App extends Component {
       },
       {
         id: 1,
+        name: 'Tests',
+        href: '/tests',
+        active: 'active',
+      },
+      {
+        id: 2,
         name: 'Logout',
         href: '/logout',
         active: 'active',
@@ -69,6 +76,7 @@ class App extends Component {
             <Route path="/register" component={Registration}/>
             <Route path="/login" component={Login}/>
             <Route path="/logout" component={Logout}/>
+            <Route path="/tests" component={TestList}/>
             <Route path="/" component={MainPage}/>
           </Switch>
           <Footer links={footerLinks}/>
