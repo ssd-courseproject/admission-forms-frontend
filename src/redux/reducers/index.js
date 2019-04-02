@@ -1,9 +1,12 @@
 import {combineReducers} from 'redux';
-import {authorization} from "./auth";
+import {authorization, profileFetching} from "./auth";
+import {alert} from './alerts';
 
 
 const admissionFormsReducer = combineReducers({
-  authorization
+  authorization,
+  alert,
+  profileFetching
 });
 
 export default admissionFormsReducer;
