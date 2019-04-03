@@ -11,6 +11,8 @@ class TestList extends Component {
   render() {
     return (
       <div className="test-list">
+        <p className="tests-info"> <span> Be aware: </span> All tests have a timer that starts when you open the test page. The timer is topped when the Submit button is
+        pressed at the end of the test. If the timer finishes before you the completed data is saved and sent. </p>
         <p className="test-title">Tests available: </p>
         <input className="search" type="text" placeholder="Search for specific tests..."/>
         <div className="test-entry">
@@ -21,7 +23,7 @@ class TestList extends Component {
               </p>
             </Link>
             <div className="meta">
-              <p>Time given: {'80 min'} </p>
+              <p>Time given: <span> 80 min </span> </p>
             </div>
           </div>
           <p className="description">
