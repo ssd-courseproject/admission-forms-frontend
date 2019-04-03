@@ -9,6 +9,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import {connect} from "react-redux";
 import Logout from './components/Authorization/Logout';
+import TestList from './components/Tests/TestList';
+import Test from './components/Tests/Test';
 import {PrivateRoute} from "./components/PrivateRoute/index.jsx";
 import './index.less';
 import alertActions from "./redux/actions/alerts";
@@ -20,7 +22,39 @@ class App extends Component {
   }
 
   render() {
-    const {alert, authorization} = this.props;
+    const {alert, user, auth} = this.props;
+
+    console.log(localStorage);
+
+    const headerLinksUnauthorized = [
+      {
+        id: 0,
+        name: 'Login',
+        href: '/login',
+        active: 'active',
+      }
+    ];
+
+    const headerLinksAuthorized = (params) => [
+      {
+        id: 0,
+        name: 'Profile',
+        href: '/profile',
+        active: 'active',
+      },
+      {
+        id: 1,
+        name: 'Tests',
+        href: '/tests',
+        active: 'active',
+      },
+      {
+        id: 2,
+        name: 'Logout',
+        href: '/logout',
+        active: 'active',
+      }
+    ];
 
     const footerLinks = [
       {
@@ -47,6 +81,8 @@ class App extends Component {
             <Route path="/register" component={Registration}/>
             <Route path="/login" component={Login}/>
             <Route path="/logout" component={Logout}/>
+            <Route path="/tests" component={TestList}/>
+            <Route path="/test/1" component={Test}/>
             <Route path="/editProfile" component={EditForm}/>
             <Route path="/" component={MainPage}/>
           </Switch>
@@ -64,7 +100,5 @@ function mapStateToProps(state) {
     authorization
   };
 }
-
-
 
 export default connect(mapStateToProps, null)(App);
