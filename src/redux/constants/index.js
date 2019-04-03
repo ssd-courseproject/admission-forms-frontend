@@ -17,4 +17,5 @@ export const userActionsTypes = {
 export const alertActionsTypes = {
   SUCCESS: 'ALERT_SUCCESS',
   ERROR: 'ALERT_ERROR',
+  HIDE: 'ALERT_HIDE'
 };

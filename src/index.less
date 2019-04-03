@@ -1,5 +1,32 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+//@import url('https://fonts.googleapis.com/css?family=Roboto.css');
 
 * {
   font-family: 'Roboto', sans-serif;
+}
+
+.main-container {
+
+}
+
+.alert {
+  position: absolute;
+  padding: 30px 15px;
+  background: rgba(0, 0, 0, 0.6);
+  top: 70px;
+  right: 0;
+  color: lightgreen;
+  z-index: 1;
+
+  .close {
+    transition: 0.2s;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      color: rgba(255, 0, 0, 0.6);
+    }
+  }
 }
