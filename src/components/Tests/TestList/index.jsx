@@ -15,7 +15,7 @@ class TestList extends Component {
         <input className="search" type="text" placeholder="Search for specific tests..."/>
         <div className="test-entry">
           <div className="test-header">
-            <Link to={`test/${1}`}>
+            <Link to="/test/1">
               <p className="name">
                 Bachelors test
               </p>

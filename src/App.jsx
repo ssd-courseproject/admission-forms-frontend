@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import {connect} from "react-redux";
 import Logout from './components/Authorization/Logout';
 import TestList from './components/Tests/TestList';
+import Test from './components/Tests/Test';
 
 class App extends Component {
   constructor(props) {
@@ -77,6 +78,7 @@ class App extends Component {
             <Route path="/login" component={Login}/>
             <Route path="/logout" component={Logout}/>
             <Route path="/tests" component={TestList}/>
+            <Route path="/test/1" component={Test}/>
             <Route path="/" component={MainPage}/>
           </Switch>
           <Footer links={footerLinks}/>
