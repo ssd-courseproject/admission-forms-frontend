@@ -10,8 +10,6 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
-
         // this.props.dispatch(userActions.getProfile());
     }
 

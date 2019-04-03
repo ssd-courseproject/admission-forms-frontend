@@ -20,12 +20,7 @@ function login(email, password) {
     body: JSON.stringify({email, password})
   };
 
-  return fetch(loginUrl, requestOptions)
-    .then(handleResponse)
-    .then(response => {
-      localStorage.setItem('token', JSON.stringify(response.data.access_token));
-      history.push('/profile');
-    });
+  return fetch(loginUrl, requestOptions).then(handleResponse);
 }
 
 function register(username, password) {

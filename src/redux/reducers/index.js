@@ -6,7 +6,7 @@ import {alert} from './alerts';
 const admissionFormsReducer = combineReducers({
   authorization,
   alert,
-  profileFetching
+  profileFetching,
 });
 
 export default admissionFormsReducer;

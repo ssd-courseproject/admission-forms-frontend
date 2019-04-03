@@ -1,20 +1,21 @@
 import {userActionsTypes} from "../constants";
 
-let user = JSON.parse(localStorage.getItem('user'));
-const initialState = user ? { loggedIn: true, user } : {};
+let token = JSON.parse(localStorage.getItem('token'));
+const initialState = token ? { loggedIn: true , token} : {};
+console.log(initialState);
 
 export function authorization(state = initialState, action) {
-  console.log(action.payload)
   switch (action.type) {
     case userActionsTypes.LOGIN_REQUEST:
       return {
         loggingIn: true,
-        user: action.payload
+        token: action.payload
       };
     case userActionsTypes.LOGIN_SUCCESS:
+      console.log(action);
       return {
-        loggedIn: true,
-        user: action.payload
+        token: action.payload.token,
+        loggedIn: action.payload.loggedIn,
       };
     case userActionsTypes.LOGIN_FAILURE:
       return {};

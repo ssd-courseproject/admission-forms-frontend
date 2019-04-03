@@ -19,33 +19,7 @@ class App extends Component {
   }
 
   render() {
-    const {alert, user, auth} = this.props;
-
-    console.log(this.props);
-
-    const headerLinksUnauthorized = [
-      {
-        id: 0,
-        name: 'Login',
-        href: '/login',
-        active: 'active',
-      }
-    ];
-
-    const headerLinksAuthorized = (params) => [
-      {
-        id: 0,
-        name: 'Profile',
-        href: '/profile',
-        active: 'active',
-      },
-      {
-        id: 1,
-        name: 'Logout',
-        href: '/logout',
-        active: 'active',
-      }
-    ];
+    const {alert, authorization} = this.props;
 
     const footerLinks = [
       {
@@ -66,8 +40,7 @@ class App extends Component {
           {alert.message &&
           <div className={`alert ${alert.type}`}>{alert.message}<div className="close" onClick={() => this.props.dispatch(alertActions.hide())}>x</div></div>
           }
-          <Header
-            links={localStorage.getItem('token') ? headerLinksAuthorized(localStorage.getItem('token')) : headerLinksUnauthorized}/>
+          <Header/>
           <Switch>
             <PrivateRoute path="/profile" component={Profile}/>
             <Route path="/register" component={Registration}/>
@@ -83,11 +56,10 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  const {alert, user, auth} = state;
+  const {alert, authorization} = state;
   return {
     alert,
-    user,
-    auth
+    authorization
   };
 }
 

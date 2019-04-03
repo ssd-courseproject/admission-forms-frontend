@@ -13,9 +13,10 @@ function login(email, password) {
     userService.login(email, password)
       .then(
         payload => {
-          dispatch(success(payload));
-          dispatch(alerts.success(`You are now logged in as ${payload}`));
-          console.log(payload + " is a payload");
+          localStorage.setItem('token', JSON.stringify(payload.data.access_token));
+          history.push('/profile');
+          dispatch(success({token: payload.data.access_token, loggedIn: true}));
+          dispatch(alerts.success(payload.message));
         },
         error => {
           dispatch(failure(error));
