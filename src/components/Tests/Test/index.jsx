@@ -29,7 +29,7 @@ class Test extends Component {
                         tempor incididunt ut labore et dolore magna aliqua
                     </textarea>
                 </div>
-                <button>Submit</button>
+                <Link to="/tests"><button>Submit</button></Link>
             </div>
         )
     }

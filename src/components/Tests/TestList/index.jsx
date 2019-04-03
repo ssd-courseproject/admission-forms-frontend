@@ -20,9 +20,9 @@ class TestList extends Component {
                 Bachelors test
               </p>
             </Link>
-            {/*<div className="meta">*/}
-              {/*<p>Time given: </p>*/}
-            {/*</div>*/}
+            <div className="meta">
+              <p>Time given: {'80 min'} </p>
+            </div>
           </div>
           <p className="description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
