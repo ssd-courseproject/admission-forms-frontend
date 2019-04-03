@@ -41,7 +41,6 @@ function login(email, password) {
 function getProfile() {
   return dispatch => {
     dispatch(request());
-
     userService.getProfile()
       .then(
         user => dispatch(success(user)),

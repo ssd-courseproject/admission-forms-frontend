@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import './index.less';
 import userActions from "../../redux/actions/users";
+import {Link} from "react-router-dom";
 
 
 class Profile extends Component {
@@ -26,7 +27,7 @@ class Profile extends Component {
           {/*<p>ID: #53732946</p>*/}
           {/*<p>Tests passed:</p>*/}
           {/*<p>Degree: </p>*/}
-          <button>Edit</button>
+          <Link to={'/editProfile'}><button>Edit</button></Link>
         </div>
         <form>
           <div className="profile-body">
@@ -48,10 +49,10 @@ class Profile extends Component {
 
 
 function mapStateToProps(state) {
-  const {alert, user} = state;
+  const {alert, profile} = state;
   return {
     alert,
-    user,
+    profile,
   };
 }
 

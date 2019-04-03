@@ -12,6 +12,7 @@ import Logout from './components/Authorization/Logout';
 import {PrivateRoute} from "./components/PrivateRoute/index.jsx";
 import './index.less';
 import alertActions from "./redux/actions/alerts";
+import EditForm from "./components/Profile/EditForm";
 
 class App extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class App extends Component {
             <Route path="/register" component={Registration}/>
             <Route path="/login" component={Login}/>
             <Route path="/logout" component={Logout}/>
+            <Route path="/editProfile" component={EditForm}/>
             <Route path="/" component={MainPage}/>
           </Switch>
           <Footer links={footerLinks}/>

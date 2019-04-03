@@ -12,7 +12,6 @@ export function authorization(state = initialState, action) {
         token: action.payload
       };
     case userActionsTypes.LOGIN_SUCCESS:
-      console.log(action);
       return {
         token: action.payload.token,
         loggedIn: action.payload.loggedIn,
@@ -26,15 +25,16 @@ export function authorization(state = initialState, action) {
   }
 }
 
-export function profileFetching(state = initialState, action) {
+export function profile(state = initialState, action) {
+  console.log(action);
   switch (action.type) {
     case userActionsTypes.PROFILE_REQUEST:
       return {
-        user: action.user
+        user: action
       };
     case userActionsTypes.PROFILE_SUCCESS:
       return {
-        user: action.user
+        user: action.data.data
       };
     case userActionsTypes.PROFILE_FAILURE:
       return {};
