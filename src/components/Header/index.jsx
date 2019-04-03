@@ -21,6 +21,12 @@ class Header extends Component {
       },
       {
         id: 1,
+        name: 'Tests',
+        href: '/tests',
+        active: 'active',
+      },
+      {
+        id: 2,
         name: 'Logout',
         href: '/logout',
         active: 'active',
