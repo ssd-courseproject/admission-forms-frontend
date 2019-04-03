@@ -1,19 +1,20 @@
 import {userActionsTypes} from "../constants";
 
-let user = JSON.parse(localStorage.getItem('user'));
-const initialState = user ? { loggedIn: true, user } : {};
+let token = JSON.parse(localStorage.getItem('token'));
+const initialState = token ? { loggedIn: true , token} : {};
+console.log(initialState);
 
 export function authorization(state = initialState, action) {
   switch (action.type) {
     case userActionsTypes.LOGIN_REQUEST:
       return {
         loggingIn: true,
-        token: action.user
+        token: action.payload
       };
     case userActionsTypes.LOGIN_SUCCESS:
       return {
-        loggedIn: true,
-        token: action.data.user
+        token: action.payload.token,
+        loggedIn: action.payload.loggedIn,
       };
     case userActionsTypes.LOGIN_FAILURE:
       return {};
@@ -24,15 +25,16 @@ export function authorization(state = initialState, action) {
   }
 }
 
-export function profileFetching(state = initialState, action) {
+export function profile(state = initialState, action) {
+  console.log(action);
   switch (action.type) {
     case userActionsTypes.PROFILE_REQUEST:
       return {
-        user: action.user
+        user: action
       };
     case userActionsTypes.PROFILE_SUCCESS:
       return {
-        user: action.user
+        user: action.data.data
       };
     case userActionsTypes.PROFILE_FAILURE:
       return {};

@@ -12,9 +12,11 @@ function login(email, password) {
 
     userService.login(email, password)
       .then(
-        user => {
-          dispatch(success(user));
+        payload => {
+          localStorage.setItem('token', JSON.stringify(payload.data.access_token));
           history.push('/profile');
+          dispatch(success({token: payload.data.access_token, loggedIn: true}));
+          dispatch(alerts.success(payload.message));
         },
         error => {
           dispatch(failure(error));
@@ -23,12 +25,12 @@ function login(email, password) {
       );
   };
 
-  function request(user) {
-    return {type: userActionsTypes.LOGIN_REQUEST, user}
+  function request(payload) {
+    return {type: userActionsTypes.LOGIN_REQUEST, payload}
   }
 
-  function success(user) {
-    return {type: userActionsTypes.LOGIN_SUCCESS, user}
+  function success(payload) {
+    return {type: userActionsTypes.LOGIN_SUCCESS, payload}
   }
 
   function failure(error) {
@@ -39,7 +41,6 @@ function login(email, password) {
 function getProfile() {
   return dispatch => {
     dispatch(request());
-
     userService.getProfile()
       .then(
         user => dispatch(success(user)),
@@ -65,6 +66,7 @@ function getProfile() {
 
 function logout() {
   userService.logout();
+  history.push('/');
   return {type: userActionsTypes.LOGOUT};
 }
 

@@ -8,6 +8,7 @@ import {
   Form,
   FormField,
 } from "grommet";
+import {Redirect} from "react-router";
 
 const submitForm = (data, dispatch) => {
   if (data.value.email && data.value.password) {
@@ -16,7 +17,7 @@ const submitForm = (data, dispatch) => {
 };
 
 const LoginForm = (props) => {
-  return (
+  return localStorage.getItem('token') ? <Redirect to={{pathname: "/profile"}}/> : (
     <div className="auth-form">
       <p className="r-title">Login</p>
       <Form onSubmit={data => submitForm(data, props.dispatch)}>
