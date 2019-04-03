@@ -9,7 +9,7 @@ export function alert(state = {}, action) {
       };
     case alertActionsTypes.ERROR:
       return {
-        type: 'alert-danger',
+        type: 'alert-error',
         message: action.message
       };
     case alertActionsTypes.HIDE:

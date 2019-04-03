@@ -14,8 +14,16 @@
   background: rgba(0, 0, 0, 0.6);
   top: 70px;
   right: 0;
-  color: lightgreen;
   z-index: 1;
+
+  &.alert-success {
+    color: lightgreen;
+  }
+
+  &.alert-error {
+    background: #ff7f82;
+    color: white;
+  }
 
   .close {
     transition: 0.2s;

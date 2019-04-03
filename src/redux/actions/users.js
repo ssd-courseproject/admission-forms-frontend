@@ -43,7 +43,10 @@ function getProfile() {
     dispatch(request());
     userService.getProfile()
       .then(
-        user => dispatch(success(user)),
+        user => {
+          console.log(user);
+          return dispatch(success(user.data))
+        },
         error => {
           dispatch(failure(error));
           dispatch(alerts.error(error))
