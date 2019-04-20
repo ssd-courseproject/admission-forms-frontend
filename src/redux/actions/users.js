@@ -13,9 +13,9 @@ function login(email, password) {
     userService.login(email, password)
       .then(
         payload => {
-          localStorage.setItem('token', JSON.stringify(payload.data.access_token));
+          localStorage.setItem('token', JSON.stringify(payload.access_token));
           history.push('/profile');
-          dispatch(success({token: payload.data.access_token, loggedIn: true}));
+          dispatch(success({token: payload.access_token, loggedIn: true}));
           dispatch(alerts.success(payload.message));
         },
         error => {
