@@ -3,39 +3,98 @@ import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
 import '../index.less';
 
-class TestList extends Component {
-  // fetchTests = () => {
-  //
-  // };
+function onSearchTest(search) {
+    const entry = search.target.value;
+    this.setState({tests: tests.filter(test => test.name.toLowerCase().includes(entry.toLowerCase()))});
+}
 
-  render() {
-    return (
-      <div className="test-list">
-        <p className="tests-info"> <span> Be aware: </span> All tests have a timer that starts when you open the test page. The timer is topped when the Submit button is
-        pressed at the end of the test. If the timer finishes before you the completed data is saved and sent. </p>
-        <p className="test-title">Tests available: </p>
-        <input className="search" type="text" placeholder="Search for specific tests..."/>
-        <div className="test-entry">
-          <div className="test-header">
-            <Link to="/test/1">
-              <p className="name">
-                Bachelors test
-              </p>
-            </Link>
-            <div className="meta">
-              <p>Time given: <span> 80 min </span> </p>
+const tests = [
+    {
+        id: 0,
+        name: 'Math test',
+        description: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n' +
+            '                        labore et\n' +
+            '                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
+            '                        aliquip ex\n' +
+            '                        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum\n' +
+            '                        dolore eu\n' +
+            '                        fugiat nulla pariatur.',
+        timeGiven: '1h 20min',
+    },
+    {
+        id: 1,
+        name: 'Physics test',
+        description: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n' +
+            '                        labore et\n' +
+            '                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
+            '                        aliquip ex\n' +
+            '                        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum\n' +
+            '                        dolore eu\n' +
+            '                        fugiat nulla pariatur.',
+        timeGiven: '1h',
+    },
+    {
+        id: 2,
+        name: 'Computer science test',
+        description: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n' +
+            '                        labore et\n' +
+            '                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
+            '                        aliquip ex\n' +
+            '                        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum\n' +
+            '                        dolore eu\n' +
+            '                        fugiat nulla pariatur.',
+        timeGiven: '40 min',
+    },
+];
+
+class TestList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            tests: []
+        }
+    }
+
+    componentWillMount() {
+        this.setState({tests: tests})
+    }
+
+
+    // fetchTests = () => {
+    //
+    // };
+
+    render() {
+        return (
+            <div className="test-list">
+                <p className="tests-info"><span> Be aware: </span> All tests have a timer that starts when you open the
+                    test page. The timer is topped when the Submit button is
+                    pressed at the end of the test. If the timer finishes before you the completed data is saved and
+                    sent. </p>
+                <p className="test-title">Tests available: </p>
+                <input onChange={onSearchTest.bind(this)} className="search" type="text" placeholder="Search for specific tests..."/>
+
+                {this.state.tests.map(test => (
+                    <div className="test-entry" key={test.id}>
+                        <div className="test-header">
+                            <Link to={`/test/${test.id}`}>
+                                <p className="name">
+                                    {test.name}
+                                </p>
+                            </Link>
+                            <div className="meta">
+                                <p>Time given: <span>{test.timeGiven}</span></p>
+                            </div>
+                        </div>
+                        <p className="description">
+                            {test.description}
+                        </p>
+                    </div>
+                ))}
             </div>
-          </div>
-          <p className="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur.
-          </p>
-        </div>
-      </div>
-    )
-  }
+        )
+    }
 }
 
 export default connect()(TestList);
