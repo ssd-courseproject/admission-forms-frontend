@@ -10,20 +10,14 @@ function onSearchTest(search) {
 
 const tests = [
     {
-        id: 0,
-        name: 'Math test',
-        description: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n' +
-            '                        labore et\n' +
-            '                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
-            '                        aliquip ex\n' +
-            '                        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum\n' +
-            '                        dolore eu\n' +
-            '                        fugiat nulla pariatur.',
-        timeGiven: '1h 20min',
+        id: 1,
+        name: 'Interview on Skype',
+        description: 'Interview will be available on Skype with professor Brown on 25.04.2019. Please access @JBrown account.',
+        timeGiven: '30 min',
     },
     {
-        id: 1,
-        name: 'Physics test',
+        id: 2,
+        name: 'Math test',
         description: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n' +
             '                        labore et\n' +
             '                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
@@ -34,7 +28,19 @@ const tests = [
         timeGiven: '1h',
     },
     {
-        id: 2,
+        id: 3,
+        name: 'Physics test',
+        description: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n' +
+            '                        labore et\n' +
+            '                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
+            '                        aliquip ex\n' +
+            '                        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum\n' +
+            '                        dolore eu\n' +
+            '                        fugiat nulla pariatur.',
+        timeGiven: '40 min',
+    },
+    {
+        id: 4,
         name: 'Computer science test',
         description: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n' +
             '                        labore et\n' +
@@ -45,6 +51,7 @@ const tests = [
             '                        fugiat nulla pariatur.',
         timeGiven: '40 min',
     },
+
 ];
 
 class TestList extends Component {
@@ -73,7 +80,8 @@ class TestList extends Component {
                     pressed at the end of the test. If the timer finishes before you the completed data is saved and
                     sent. </p>
                 <p className="test-title">Tests available: </p>
-                <input onChange={onSearchTest.bind(this)} className="search" type="text" placeholder="Search for specific tests..."/>
+                <input onChange={onSearchTest.bind(this)} className="search" type="text"
+                       placeholder="Search for specific tests..."/>
 
                 {this.state.tests.map(test => (
                     <div className="test-entry" key={test.id}>

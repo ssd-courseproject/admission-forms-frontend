@@ -53,6 +53,9 @@ class App extends Component {
                         <Route path="/logout" component={Logout}/>
                         <PrivateRoute path="/tests" component={TestList}/>
                         <PrivateRoute path="/test/1" component={Test}/>
+                        <PrivateRoute path="/test/2" component={Test}/>
+                        <PrivateRoute path="/test/3" component={Test}/>
+                        <PrivateRoute path="/test/4" component={Test}/>
                         <PrivateRoute path="/editProfile" component={EditForm}/>
                         <Route path="/" component={MainPage}/>
                     </Switch>

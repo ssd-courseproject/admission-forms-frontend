@@ -2,33 +2,22 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
 import '../index.less';
+import moment from 'moment';
 
+// let countDown = moment.duration(1, "s").timer({loop: false}, () => {
+//     this.setState({timeLeft: moment(this.state.timeLeft).subtract(1, "s")});
+// });
 
-const deadline = new Date("apr 21, 2019 19:30:00").getTime();
-
-const x = setInterval(function () {
-
-    const now = new Date().getTime();
-    const t = deadline - now;
-    const days = Math.floor(t / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((t % (1000 * 60)) / 1000);
-    // document.getElementById("day").innerHTML = days;
-    document.getElementById("hour").innerHTML = hours;
-    document.getElementById("minute").innerHTML = minutes;
-    document.getElementById("second").innerHTML = seconds;
-    if (t < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "TIME UP";
-        // document.getElementById("day").innerHTML = '0';
-        document.getElementById("hour").innerHTML = '0';
-        document.getElementById("minute").innerHTML = '0';
-        document.getElementById("second").innerHTML = '0';
-    }
-}, 1000);
+// const timer = moment.duration(80, "minutes").timer({loop: false}, function () {
+//     // Submit and notify that time is over
+// });
 
 class Test extends Component {
+    constructor(props) {
+        super(props);
+
+        // countDown = countDown.bind(this);
+    }
 
     render() {
         return (
@@ -39,18 +28,7 @@ class Test extends Component {
 
                 {/*---------------*/}
                 <div id="clockdiv">
-                    <div>
-                        <span className="hours" id="hour"/>
-                        <div className="smalltext">Hours</div>
-                    </div>
-                    <div>
-                        <span className="minutes" id="minute"/>
-                        <div className="smalltext">Minutes</div>
-                    </div>
-                    <div>
-                        <span className="seconds" id="second"/>
-                        <div className="smalltext">Seconds</div>
-                    </div>
+                    1h 20min
                 </div>
 
                 <p id="demo"/>
