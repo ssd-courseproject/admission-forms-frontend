@@ -2,7 +2,7 @@ import {testsActionsTypes} from "../constants";
 
 export function testsList(state = [], action) {
 
-    console.log(action);
+    console.log(state);
 
     switch (action.type) {
         case testsActionsTypes.TESTS_LIST_REQUEST:
@@ -15,6 +15,10 @@ export function testsList(state = [], action) {
             };
         case testsActionsTypes.TESTS_LIST_FAILED:
             return {};
+        case testsActionsTypes.TESTS_LIST_MODIFY:
+            return {
+                list: state.list.list.filter(test => action.condition(test))
+            };
         default:
             return state
     }

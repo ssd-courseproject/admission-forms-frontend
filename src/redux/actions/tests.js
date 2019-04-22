@@ -34,4 +34,8 @@ function fetchTestsList() {
     }
 }
 
-export default {fetchTestsList};
+function modifyTestsList(condition) {
+    return {type: testsActionsTypes.TESTS_LIST_MODIFY, condition}
+}
+
+export default {fetchTestsList, modifyTestsList};

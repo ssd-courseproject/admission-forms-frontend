@@ -6,7 +6,8 @@ import actions from '../../../redux/actions'
 
 function onSearchTest(search) {
     const entry = search.target.value;
-    this.setState({tests: this.state.tests.filter(test => test.name.toLowerCase().includes(entry.toLowerCase()))});
+
+    this.props.dispatch(actions.tests.modifyTestsList(test => test.test_name.toLowerCase().includes(entry.toLowerCase())));
 }
 
 
@@ -15,7 +16,7 @@ class TestList extends Component {
         super(props);
 
         this.state = {
-            tests: props.testsList.list || [],
+            tests: props.testsList.list && props.testsList.list.list || [],
         }
     }
 
@@ -24,6 +25,7 @@ class TestList extends Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div className="test-list">
                 <p className="tests-info"><span> Be aware: </span> All tests have a timer that starts when you open the
@@ -34,23 +36,23 @@ class TestList extends Component {
                 <input onChange={onSearchTest.bind(this)} className="search" type="text"
                        placeholder="Search for specific tests..."/>
 
-                {/*{this.state.tests.map(test => (*/}
-                {/*<div className="test-entry" key={test.id}>*/}
-                {/*<div className="test-header">*/}
-                {/*<Link to={`/test/${test.id}`}>*/}
-                {/*<p className="name">*/}
-                {/*{test.name}*/}
-                {/*</p>*/}
-                {/*</Link>*/}
-                {/*<div className="meta">*/}
-                {/*<p>Time given: <span>{test.timeGiven}</span></p>*/}
-                {/*</div>*/}
-                {/*</div>*/}
-                {/*<p className="description">*/}
-                {/*{test.description}*/}
-                {/*</p>*/}
-                {/*</div>*/}
-                {/*))}*/}
+                {this.props.testsList.list && this.props.testsList.list.list && this.props.testsList.list.list.map(test => (
+                    <div className="test-entry" key={test.id}>
+                        <div className="test-header">
+                            <Link to={`/test/${test.id}`}>
+                                <p className="name">
+                                    {test.test_name}
+                                </p>
+                            </Link>
+                            <div className="meta">
+                                <p>Time given: <span>{test.max_time}</span></p>
+                            </div>
+                        </div>
+                        <p className="description">
+                            {test.description}
+                        </p>
+                    </div>
+                ))}
             </div>
         )
     }
