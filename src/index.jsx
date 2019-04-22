@@ -10,8 +10,8 @@ const root = document.getElementById('root');
 const store = createStore(admissionsFormsReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
-  root
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    root
 );

@@ -19,3 +19,9 @@ export const alertActionsTypes = {
   ERROR: 'ALERT_ERROR',
   HIDE: 'ALERT_HIDE'
 };
+
+export const testsActionsTypes = {
+  TESTS_LIST_SUCCESS: 'TESTS_LIST_SUCCESS',
+  TESTS_LIST_FAILED: 'TESTS_LIST_FAILED',
+  TESTS_LIST_REQUEST: 'TESTS_LIST_REQUEST'
+};
