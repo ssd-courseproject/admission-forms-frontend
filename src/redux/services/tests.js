@@ -4,9 +4,11 @@ import history from "../../history";
 
 export const testsService = {
     testsList,
+    singleTest
 };
 
 const testListUrl = api.baseURL + '/tests/list';
+const singleTestUrl = test_id => api.baseURL + `/tests/${test_id}`;
 
 
 function testsList() {
@@ -16,6 +18,14 @@ function testsList() {
     };
 
     return fetch(testListUrl, requestOptions).then(handleResponse);
+}
+
+function singleTest(test_id) {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+    return fetch(singleTestUrl(test_id), requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

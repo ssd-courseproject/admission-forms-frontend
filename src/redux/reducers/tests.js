@@ -1,8 +1,6 @@
-import {testsActionsTypes} from "../constants";
+import {singleTestActionsTypes, testsActionsTypes} from "../constants";
 
 export function testsList(state = [], action) {
-
-    console.log(state);
 
     switch (action.type) {
         case testsActionsTypes.TESTS_LIST_REQUEST:
@@ -20,6 +18,25 @@ export function testsList(state = [], action) {
                 list: state.list.list.filter(test => action.condition(test))
             };
         default:
-            return state
+            return state;
     }
+}
+
+export function singleTest(state = [], action) {
+
+    switch (action.type) {
+        case singleTestActionsTypes.TESTS_LIST_REQUEST:
+            return {
+                info: action.payload
+            };
+        case singleTestActionsTypes.TESTS_LIST_SUCCESS:
+            return {
+                info: action.payload
+            };
+        case singleTestActionsTypes.TESTS_LIST_FAILED:
+            return {};
+        default:
+            return state;
+    }
+
 }
