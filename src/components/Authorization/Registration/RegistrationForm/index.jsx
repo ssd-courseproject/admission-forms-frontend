@@ -1,55 +1,58 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import '../../index.less';
-import api from '../../../../common/api';
+import usersActions from '../../../../redux/actions/users';
 
-import {
-  Box,
-  Button,
-  Grommet,
-  Form,
-  FormField,
-} from "grommet";
+import {Button, Form, FormField,} from "grommet";
+import {Redirect} from "react-router";
 
-const submitForm = (data) => {
-  localStorage.setItem("token", api.auth.register(data).result);
+const submitForm = (data, dispatch) => {
+  console.log(data.value);
+  dispatch(usersActions.register(data.value));
 };
 
-const RegistrationForm = () => {
-  return (
+const RegistrationForm = (props) => {
+  return localStorage.getItem('token') ? <Redirect to={{pathname: "/profile"}}/> : (
     <div className="auth-form">
-      <p className="r-title">Register</p>
-      <Form onSubmit={data => submitForm(data)}>
+      <p className="r-title">Registation</p>
+      <Form onSubmit={data => submitForm(data, props.dispatch)}>
         <FormField
           label="First name"
-          name="first_name"
+          name="name"
+          placeholder="Enter your first name"
           required
-          // validate={{regexp: /^[a-z]/i}}
         />
         <FormField
           label="Last name"
-          name="last_name"
+          name="surname"
+          placeholder="Enter your last name"
           required
-          // validate={{regexp: /^[a-z]/i}}
         />
-        <FormField label="Email" name="email" type="email" required/>
+        <FormField
+          label="E-mail"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
         <FormField
           label="Password"
-          name="password1"
+          name="password"
+          placeholder="Enter your password"
+          type="password"
           required
-          // validate={{regexp: /^[a-z]/i}}
         />
         <FormField
-          label="Repeat password"
-          name="password2"
+          label="Password"
+          name="password"
+          placeholder="Enter your password"
+          type="password"
           required
-          // validate={{regexp: /^[a-z]/i}}
         />
         <div className="form-control">
-          <Link to="/profile"><Button type="submit" label="Register" primary/></Link>
+          <Button type="submit" label="Register" primary/>
         </div>
       </Form>
-      <p className="form-control-text">If you already have an account, <Link to="/login">sign in</Link>.</p>
+      <p className="form-control-text">If you already have an account, <Link to="/login">login</Link>.</p>
     </div>
   )
 };
