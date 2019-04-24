@@ -13,4 +13,4 @@ class Registration extends Component {
   }
 }
 
-export default connect(Registration);
+export default connect()(Registration);

@@ -3,6 +3,45 @@ import {userService} from '../services/users';
 import history from '../../history';
 import alerts from './alerts';
 
+function register(user) {
+  return dispatch => {
+    dispatch(request());
+
+    userService.register(user)
+      .then(() => {
+          userService.login(user.email, user.password)
+            .then(
+              payload => {
+                localStorage.setItem('token', JSON.stringify(payload.access_token));
+                history.push('/profile');
+                dispatch(success({token: payload.access_token, loggedIn: true}));
+                dispatch(alerts.success(payload.message));
+              },
+              error => {
+                dispatch(failure(error));
+                dispatch(alerts.error(error));
+              }
+            );
+        },
+        error => {
+          dispatch(failure(error));
+          dispatch(alerts.error(error));
+        }
+      );
+  };
+
+  function request() {
+    return {type: userActionsTypes.REGISTER_REQUEST}
+  }
+
+  function success(payload) {
+    return {type: userActionsTypes.REGISTER_SUCCESS, payload}
+  }
+
+  function failure(error) {
+    return {type: userActionsTypes.REGISTER_FAILURE, error}
+  }
+}
 
 function login(email, password) {
   console.log(localStorage);
@@ -70,4 +109,4 @@ function logout() {
   return {type: userActionsTypes.LOGOUT};
 }
 
-export default {login, logout, getProfile};
+export default {login, logout, getProfile, register};

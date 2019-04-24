@@ -5,6 +5,7 @@ export const userService = {
   login,
   logout,
   getProfile,
+  register,
 };
 
 const loginUrl = api.baseURL + '/auth/login';
@@ -39,7 +40,7 @@ function register(user) {
 function logout() {
   localStorage.removeItem('token');
 
-  // return fetch(logoutUrl, {method: 'POST'});
+  fetch(logoutUrl, {method: 'POST'});
 }
 
 function getProfile() {

@@ -7,6 +7,7 @@ import {Button, Form, FormField,} from "grommet";
 import {Redirect} from "react-router";
 
 const submitForm = (data, dispatch) => {
+  console.log(data.value);
   dispatch(usersActions.register(data.value));
 };
 
