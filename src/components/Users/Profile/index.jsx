@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import './index.less';
-import userActions from "../../redux/actions/users";
+import userActions from "../../../redux/actions/users";
 import {Link} from "react-router-dom";
 
 
@@ -21,7 +21,7 @@ class Profile extends Component {
     return (
       <div className="profile-container">
         <div className="profile-header">
-          <img src="/src/components/Profile/images/1.png" alt="img"/>
+          <img src="/src/components/Users/Profile/images/1.png" alt="img"/>
           <p className="candidate">Candidate: </p>
           <p className="user-name"> Ruslan Farkhutdinov </p>
           {/*<p>ID: #53732946</p>*/}

@@ -12,6 +12,7 @@ const loginUrl = api.baseURL + '/auth/login';
 const registerUrl = api.baseURL + '/profile/register';
 const logoutUrl = api.baseURL + '/auth/logout';
 const profileUrl = api.baseURL + '/profile';
+const profilesListUrl = api.baseURL + '/users/list/';
 
 function login(email, password) {
   const requestOptions = {
@@ -50,6 +51,15 @@ function getProfile() {
   };
 
   return fetch(profileUrl, requestOptions).then(handleResponse);
+}
+
+function getProfilesList() {
+  const requestOptions = {
+    method: 'GET',
+    headers: authHeader()
+  };
+
+  return fetch(profilesListUrl, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
