@@ -2,7 +2,6 @@ import {userActionsTypes} from "../constants";
 
 let token = JSON.parse(localStorage.getItem('token'));
 const initialState = token ? { loggedIn: true , token} : {};
-console.log(initialState);
 
 export function authorization(state = initialState, action) {
   switch (action.type) {
@@ -26,7 +25,6 @@ export function authorization(state = initialState, action) {
 }
 
 export function profile(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case userActionsTypes.PROFILE_REQUEST:
       return {
