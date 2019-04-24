@@ -1,6 +1,5 @@
 import {authHeader} from '../utils';
 import api from '../../common/api';
-import history from "../../history";
 
 export const userService = {
   login,
@@ -9,7 +8,7 @@ export const userService = {
 };
 
 const loginUrl = api.baseURL + '/auth/login';
-const registerUrl = api.baseURL + '/auth/register';
+const registerUrl = api.baseURL + '/profile/register';
 const logoutUrl = api.baseURL + '/auth/logout';
 const profileUrl = api.baseURL + '/profile';
 
@@ -23,14 +22,14 @@ function login(email, password) {
   return fetch(loginUrl, requestOptions).then(handleResponse);
 }
 
-function register(username, password) {
+function register(user) {
   const requestOptions = {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({username, password})
+    body: JSON.stringify(user)
   };
 
-  return fetch(loginUrl, requestOptions)
+  return fetch(registerUrl, requestOptions)
     .then(handleResponse)
     .then(user => {
       localStorage.setItem('token', JSON.stringify(user));

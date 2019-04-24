@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
-import RegistrationForm from './RegistrationForm/index';
+import RegistrationForm from './RegistrationForm';
 import './index.less';
+import {connect} from "react-redux";
 
-export default class Registration extends Component {
+class Registration extends Component {
   render() {
     return (
-      <div className="registration">
-        <RegistrationForm/>
+      <div className="login">
+        <RegistrationForm dispatch={this.props.dispatch}/>
       </div>
     )
   }
 }
+
+export default connect(Registration);
