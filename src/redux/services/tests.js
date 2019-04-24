@@ -4,12 +4,13 @@ import history from "../../history";
 
 export const testsService = {
     testsList,
-    singleTest
+    singleTest,
+    createTest
 };
 
 const testListUrl = api.baseURL + '/tests/list';
 const singleTestUrl = test_id => api.baseURL + `/tests/${test_id}`;
-
+const createTestUrl = api.baseURL + '/tests/create';
 
 function testsList() {
     const requestOptions = {
@@ -18,6 +19,16 @@ function testsList() {
     };
 
     return fetch(testListUrl, requestOptions).then(handleResponse);
+}
+
+function createTest(data) {
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    };
+
+    return fetch(createTestUrl, requestOptions).then(handleResponse);
 }
 
 function singleTest(test_id) {
