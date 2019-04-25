@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import './index.less';
 import {Link} from "react-router-dom";
-import actions from "../../redux/actions";
+import actions from "../../../redux/actions";
 
 
 class Profile extends Component {
@@ -31,8 +31,7 @@ class Profile extends Component {
         </div>
         <form>
           <div className="profile-body">
-            <p>Full name: <span>Ruslan Farkhutdinov<input readOnly value='Ruslan' type="text"
-                                                          className={edit ? 'edit' : ''}/></span></p>
+            <p>Full name: <span>Ruslan Farkhutdinov</span></p>
             <p>Gender: <span>Male</span></p>
             <p>Birth date: <span>13.02.1998</span></p>
             <p>Birth place: <span>Russia, Tatarstan</span></p>

@@ -5,7 +5,7 @@ import MainPage from "./components/MainPage";
 import {Route, Switch} from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
 
-import Profile from "./components/Profile/index";
+import Profile from "./components/Users/Profile";
 import TestCreate from "./components/Tests/TestCreate";
 import Header from './components/Header';
 import Footer from './components/Footer';
