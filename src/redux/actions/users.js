@@ -1,4 +1,4 @@
-import {userActionsTypes} from '../constants';
+import {testsActionsTypes, userActionsTypes} from '../constants';
 import {userService} from '../services/users';
 import history from '../../history';
 import alerts from './alerts';
@@ -103,10 +103,40 @@ function getProfile() {
   }
 }
 
+function getProfilesList() {
+  return dispatch => {
+    dispatch(request());
+    userService.getProfilesList()
+      .then(
+        user => dispatch(success(user)),
+        error => {
+          dispatch(failure(error));
+          dispatch(alerts.error(error))
+        }
+      );
+  };
+
+  function request() {
+    return {type: userActionsTypes.PROFILES_LIST_REQUEST}
+  }
+
+  function success(payload) {
+    return {type: userActionsTypes.PROFILES_LIST_SUCCESS, payload}
+  }
+
+  function failure(error) {
+    return {type: userActionsTypes.PROFILES_LIST_FAILURE, error}
+  }
+}
+
+function modifyProfilesList(initialList, condition) {
+  return {type: testsActionsTypes.PROFILES_LIST_MODIFY, payload: {initialList, condition}}
+}
+
 function logout() {
   userService.logout();
   history.push('/');
   return {type: userActionsTypes.LOGOUT};
 }
 
-export default {login, logout, getProfile, register};
+export default {login, logout, getProfile, register, getProfilesList, modifyProfilesList};
