@@ -33,20 +33,20 @@ class ProfilesList extends Component {
         <input onChange={onSearchTest.bind(this)} className="search" type="text"
                placeholder="Search for specific users by name..."/>
 
-        {this.props.profiles && this.props.profiles.list && this.props.profiles.list.map(test => (
-          <div className="user-entry" key={test.id}>
+        {this.props.profiles && this.props.profiles.list && this.props.profiles.list.map(profile => (
+          <div className="user-entry" key={profile.id}>
             <div className="test-header">
-              <Link to={`/test/${test.id}`}>
+              <Link to={`/profiles/${profile.id}`}>
                 <p className="name">
-                  {test.test_name}
+                  {profile.test_name}
                 </p>
               </Link>
               <div className="meta">
-                <p>DDD: <span>{test.max_time}</span></p>
+                <p>DDD: <span>{profile.max_time}</span></p>
               </div>
             </div>
             <p className="description">
-              {test.description}
+              {profile.description}
             </p>
           </div>
         ))}
