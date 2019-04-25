@@ -1,7 +1,5 @@
-import auth from './auth';
-import profile from './profile';
+const baseURL = 'http://34.73.254.12';
 
 export default {
-  profile,
-  auth,
+  baseURL
 };
