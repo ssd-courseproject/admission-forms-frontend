@@ -4,6 +4,21 @@ import {Link} from "react-router-dom";
 import '../index.less';
 import actions from '../../../redux/actions'
 
+const profiles = [
+  {
+    id: 0,
+    name: 'Ruslan Farkhutdinov',
+  },
+  {
+    id: 1,
+    name: 'Ecaterina Baba',
+  },
+  {
+    id: 2,
+    name: 'Ivan Ivanov',
+  }
+];
+
 function onSearchTest(search) {
   const entry = search.target.value;
 
@@ -23,7 +38,7 @@ class ProfilesList extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(actions.tests.fetchTestsList());
+    // this.props.dispatch(actions.tests.fetchTestsList());
   }
 
   render() {
@@ -33,21 +48,15 @@ class ProfilesList extends Component {
         <input onChange={onSearchTest.bind(this)} className="search" type="text"
                placeholder="Search for specific users by name..."/>
 
-        {this.props.profiles && this.props.profiles.list && this.props.profiles.list.map(profile => (
+        {profiles.map(profile => (
           <div className="user-entry" key={profile.id}>
             <div className="test-header">
               <Link to={`/profiles/${profile.id}`}>
                 <p className="name">
-                  {profile.test_name}
+                  {profile.name}
                 </p>
               </Link>
-              <div className="meta">
-                <p>DDD: <span>{profile.max_time}</span></p>
-              </div>
             </div>
-            <p className="description">
-              {profile.description}
-            </p>
           </div>
         ))}
       </div>

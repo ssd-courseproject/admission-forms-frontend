@@ -21,12 +21,18 @@ class Header extends Component {
       },
       {
         id: 1,
-        name: 'Tests',
+        name: 'Tests & Interviews',
         href: '/tests',
         active: 'active',
       },
       {
         id: 2,
+        name: 'Users',
+        href: '/profiles',
+        active: 'active',
+      },
+      {
+        id: 3,
         name: 'Logout',
         href: '/logout',
         active: 'active',

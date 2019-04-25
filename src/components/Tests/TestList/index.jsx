@@ -4,6 +4,33 @@ import {Link} from "react-router-dom";
 import '../index.less';
 import actions from '../../../redux/actions'
 
+const tests = [
+  {
+    id: 0,
+    test_name: 'Interview with professor Adil Khan, a.khan@innopolis.ru',
+    max_time: '30 min',
+    description: 'The interview is required and will be held with professor using Skype.'
+  },
+  {
+    id: 1,
+    test_name: 'Math test',
+    max_time: '90 min',
+    description: 'In this test you will have to solve high school math problems with both multiple choice and open questions.'
+  },
+  {
+    id: 2,
+    test_name: 'Informatics test',
+    max_time: '90 min',
+    description: 'In this test you will have to solve high school informatics problems with both multiple choice and open questions.'
+  },
+  {
+    id: 3,
+    test_name: 'Physics test',
+    max_time: '90 min',
+    description: 'In this test you will have to solve high school informatics problems with both multiple choice and open questions.'
+  }
+];
+
 function onSearchTest(search) {
   const entry = search.target.value;
   console.log(entry);
@@ -39,8 +66,10 @@ class TestList extends Component {
         <p className="test-title">Tests available: </p>
         <input onChange={onSearchTest.bind(this)} className="search" type="text"
                placeholder="Search for specific tests..."/>
-        {isAdmin && <Link to={"/tests/create"}><div className="button">Create test</div></Link>}
-        {this.props.testsList.filteredList && this.props.testsList.filteredList && this.props.testsList.filteredList.map(test => (
+        {isAdmin && <Link to={"/tests/create"}>
+          <div className="button">Create test</div>
+        </Link>}
+        {tests.map(test => (
           <div className="test-entry" key={test.id}>
             <div className="test-header">
               <Link to={`/test/${test.id}`}>

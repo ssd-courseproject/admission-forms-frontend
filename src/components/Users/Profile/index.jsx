@@ -11,7 +11,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(actions.users.getProfile());
+    // this.props.dispatch(actions.users.getProfile());
     console.log(this.props)
   }
 
@@ -20,7 +20,7 @@ class Profile extends Component {
       <div className="profile-container">
         <div className="profile-header">
           <img src="/src/components/Users/Profile/images/1.png" alt="img"/>
-          <p className="candidate">Candidate: </p>
+          <p className="candidate">User: </p>
           <p className="user-name"> Ruslan Farkhutdinov </p>
           {/*<p>ID: #53732946</p>*/}
           {/*<p>Tests passed:</p>*/}
@@ -37,7 +37,7 @@ class Profile extends Component {
             <p>Birth place: <span>Russia, Tatarstan</span></p>
             <p>Address: <span>Universitetskaya street, home 2-339</span></p>
             <p>Phone: <span>+7 888 567 48 90</span></p>
-            <p>Email: <span>r.fark@gmail.com</span></p>
+            <p>Email: <span>r.farkhutdinov@innopolis.ru</span></p>
             <p>Graduated from: <span>Innopolis University</span></p>
             <p>Portfolio: <a href="#">View portfolio</a></p>
           </div>
