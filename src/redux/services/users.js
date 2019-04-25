@@ -49,6 +49,8 @@ function getProfile() {
     headers: authHeader()
   };
 
+  console.log(profileUrl)
+
   return fetch(profileUrl, requestOptions).then(handleResponse);
 }
 

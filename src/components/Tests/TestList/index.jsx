@@ -28,6 +28,8 @@ class TestList extends Component {
   }
 
   render() {
+    const isAdmin = true;
+
     return (
       <div className="test-list">
         <p className="tests-info"><span> Be aware: </span> All tests have a timer that starts when you open the
@@ -37,7 +39,7 @@ class TestList extends Component {
         <p className="test-title">Tests available: </p>
         <input onChange={onSearchTest.bind(this)} className="search" type="text"
                placeholder="Search for specific tests..."/>
-
+        {isAdmin && <Link to={"/tests/create"}><div className="button">Create test</div></Link>}
         {this.props.testsList.filteredList && this.props.testsList.filteredList && this.props.testsList.filteredList.map(test => (
           <div className="test-entry" key={test.id}>
             <div className="test-header">
