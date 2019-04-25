@@ -4,7 +4,9 @@ import Login from './components/Authorization/Login/index';
 import MainPage from "./components/MainPage";
 import {Route, Switch} from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
-import Profile from "./components/Users/Profile/index";
+
+import Profile from "./components/Profile/index";
+import TestCreate from "./components/Tests/TestCreate";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import {connect} from "react-redux";
@@ -49,13 +51,14 @@ class App extends Component {
           <Header/>
           <Switch>
             <PrivateRoute path="/profile" component={Profile}/>
+            <PrivateRoute path="/profiles" component={ProfilesList}/>
             <Route path="/register" component={Registration}/>
             <Route path="/login" component={Login}/>
             <Route path="/logout" component={Logout}/>
-            <PrivateRoute path="/tests" component={TestList}/>
-            <PrivateRoute path="/profiles" component={ProfilesList}/>
             <PrivateRoute path="/test/:id" component={Test}/>
             <PrivateRoute path="/editProfile" component={EditForm}/>
+            <PrivateRoute path="/tests/create" component={TestCreate}/>
+            <PrivateRoute path="/tests" component={TestList}/>
             <Route path="/" component={MainPage}/>
           </Switch>
           <Footer links={footerLinks}/>
